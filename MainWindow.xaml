@@ -1,0 +1,35 @@
+﻿<Window x:Class="_24_01_15.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_24_01_15"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel>
+        <ListBox x:Name="tabela" ItemsSource="{Binding films}">
+            <ListBox.ItemTemplate>
+                <DataTemplate x:Name="tabela">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Tytul}"></TextBlock>
+                        <TextBlock Text="{Binding RokProdukcji}"></TextBlock>
+                        <TextBlock Text="{Binding TylkodlaDoroslych}"></TextBlock>
+                        <Button Click="usun">usun</Button>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Separator></Separator>
+        <UniformGrid Columns="2">
+            <Label>podaj tytuł</Label>
+            <TextBox x:Name="tytul"></TextBox>
+            <Label>podaj kategorię</Label>
+            <ComboBox x:Name="kategoria" ItemsSource="{Binding kategorie}"></ComboBox>
+            <Label>podaj rok wydania</Label>
+            <TextBox x:Name="rok"></TextBox>
+            <Label>czy jest tylko dla dorosłych</Label>
+            <CheckBox x:Name="tdd"></CheckBox>
+            <Button x:Name="Submit" Click="Submit_Click">wyślij</Button>
+        </UniformGrid>
+    </StackPanel>
+</Window>
