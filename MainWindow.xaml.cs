@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,7 +10,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace _24_01_15
+namespace listy
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -28,7 +27,7 @@ namespace _24_01_15
             DataContext = this;
             przygotujFilmy();
             przygotujKategorie();
-
+            kat.ItemsSource = kategorie;
         }
 
         private void przygotujKategorie()
@@ -54,7 +53,7 @@ namespace _24_01_15
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
-            if (tytul.Text.Length>0 && kategoria.Text.Length>0)
+            if (tytul.Text.Length > 0 && kategoria.Text.Length > 0)
             {
                 if (int.TryParse(rok.Text, out int rokW))
                 {
@@ -66,7 +65,7 @@ namespace _24_01_15
                             break;
                         case false:
                             tylkoDlaDoroslych = false;
-                            break ;
+                            break;
                         default:
                             break;
 
@@ -80,11 +79,9 @@ namespace _24_01_15
             Button przycisk = sender as Button;
             if (przycisk != null)
             {
-                tabela.
-                przycisk.
                 string name = "";
                 name += przycisk.Name[1];
-                
+
                 int.TryParse(name, out int id);
                 films.RemoveAt(id);
             }

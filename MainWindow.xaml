@@ -1,24 +1,34 @@
-﻿<Window x:Class="_24_01_15.MainWindow"
+﻿<Window x:Class="listy.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:_24_01_15"
+        xmlns:local="clr-namespace:listy"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <StackPanel>
-        <ListBox x:Name="tabela" ItemsSource="{Binding films}">
+        <!--<ListBox ItemsSource="{Binding films}">
             <ListBox.ItemTemplate>
                 <DataTemplate x:Name="tabela">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Tytul}"></TextBlock>
                         <TextBlock Text="{Binding RokProdukcji}"></TextBlock>
                         <TextBlock Text="{Binding TylkodlaDoroslych}"></TextBlock>
-                        <Button Click="usun">usun</Button>
+                        <Button x:Name="" Click="usun">usun</Button>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-        </ListBox>
+        </ListBox>-->
+        <DataGrid ItemsSource="{Binding films}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Tytul}">
+                    
+                </DataGridTextColumn>
+                <DataGridComboBoxColumn x:Name="kat"
+                    SelectedItemBinding="{Binding Kategoria}">
+                </DataGridComboBoxColumn>
+            </DataGrid.Columns>
+        </DataGrid>
         <Separator></Separator>
         <UniformGrid Columns="2">
             <Label>podaj tytuł</Label>
